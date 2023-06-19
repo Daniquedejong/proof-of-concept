@@ -1,0 +1,31 @@
+{
+  "name": "proof-of-concept",
+  "version": "1.0.0",
+  "description": "> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)",
+  "main": "index.js",
+  "type": "module",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Daniquedejong/proof-of-concept.git"
+  },
+  "author": "Danique de Jong",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Daniquedejong/proof-of-concept/issues"
+  },
+  "homepage": "https://github.com/Daniquedejong/proof-of-concept#readme",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "ejs": "3.1.8",
+    "express": "^4.18.2",
+    "node-package": "^1.4.0"
+  }
+}
+

@@ -1,0 +1,52 @@
+<%- include('./partials/head') %>
+
+<h1>Aanwezigheid</h1>
+
+<p class="time">08:00</p>
+<input type="time">
+<p class="time">20:00</p>
+
+
+      <div class="employees">
+
+        <% employees.forEach(item=> { %>
+
+          <div class="employees-per-one">
+        <h2> <%= item.name %> </h2>
+  
+        <!-- foto uit de API -->
+        <% if(item.avatar) { %>
+        <img
+            src="<%= item.avatar %>"
+            loading="lazy"
+            alt="fotoProduct"
+            class="foto"
+        />
+  
+        <!-- Placeholder foto-->
+        <% }else{ %>
+        <img
+          src="/public/assets/werktijden-nl[2795].svg"
+          alt="placeholder-werktijden"
+          class="foto"
+        />
+        <% } %>
+      </div>
+        <% }) %>
+      </div>
+    
+
+
+
+
+
+
+
+
+      
+
+
+    </main>
+
+
+<%- include('./partials/foot') %>

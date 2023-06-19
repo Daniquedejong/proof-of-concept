@@ -1,0 +1,95 @@
+/*---Import---*/
+@import url("https://fonts.cdnfonts.com/css/helvetica-neue-5");
+
+/*---Root---*/
+:root {
+  --font: var(--font);
+  --green: #059669;
+  --white: #f3f4f6;
+  --container: #ffffff;
+  --border: #374151;
+}
+
+body {
+  font-family: var(--font);
+  background-color: var(--white);
+  margin: 0;
+}
+
+nav {
+  background-color: var(--green);
+}
+
+.logo-werktijden {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 7vh;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1 {
+  z-index: 100;
+  font-size: 36px;
+  font-weight: bold;
+  justify-items: center;
+  color: var(--green);
+}
+
+.item {
+  border: 1px solid var(--verdigris);
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px var(--lightgreen);
+  background-color: rgba(106, 173, 153, 0.5);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  height: 70vh;
+  width: 70vw;
+  max-width: 20rem;
+}
+
+.foto {
+  border-radius: 100px 100px 100px 100px;
+}
+
+.employees {
+  display: grid;
+  --columns: 1;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  z-index: 0;
+}
+
+.employees-per-one {
+  position: relative;
+  text-align: center;
+  background-color: var(--container);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px 1px rgba(203, 203, 203, 0.5);
+  padding: 20px;
+  margin: 15px;
+}
+
+@media all and (min-width: 700px) {
+  .employees {
+    --columns: 3;
+  }
+}
+@media all and (min-width: 1000px) {
+  .employees {
+    --columns: 4;
+  }
+}
+@media all and (min-width: 1200px) {
+  .employees {
+    --columns: 5;
+  }
+}
+
+/*-------autimatische scroll sasha------*/
