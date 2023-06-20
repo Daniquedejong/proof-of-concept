@@ -9,7 +9,7 @@
 
       <div class="employees">
 
-        <% employes.forEach(item=> { %>
+        <% employees.forEach(item=> { %>
 
           <div class="employees-per-one">
         <h2> <%= item.name %> </h2>
@@ -39,7 +39,7 @@
 
 
 
-        <% if (punches.data) { %>
+        <% if (punches) { %>
           <% const activeEmployeeTime = [...punches.data].filter(timePunch => timePunch.employee_id == item.id) %>
           <% console.log(activeEmployeeTime) %>
           <% if(activeEmployeeTime.length) { %>
