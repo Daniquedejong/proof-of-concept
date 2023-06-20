@@ -9,7 +9,7 @@
 
       <div class="employees">
 
-        <% employees.forEach(item=> { %>
+        <% employes.forEach(item=> { %>
 
           <div class="employees-per-one">
         <h2> <%= item.name %> </h2>
@@ -31,19 +31,34 @@
           class="foto"
         />
         <% } %>
+
+        <h3>Ingeklokt</h3>
+        <h3>Uitgeklokt</h3>
+
+
+
+
+
+        <% if (punches.data) { %>
+          <% const activeEmployeeTime = [...punches.data].filter(timePunch => timePunch.employee_id == item.id) %>
+          <% console.log(activeEmployeeTime) %>
+          <% if(activeEmployeeTime.length) { %>
+            <p>Ingeklokt op: <%= activeEmployeeTime[0].timestamp %></p>
+            <% if (item.type === 'clock_in') { %>
+              <button class="clock-out-button" data-employee-id="<%= item.id %>">Clock Out</button>
+              <p>Uitgeklokt op: <span id="clockOutTime-<%= item.id %>"></span></p>
+            <% } else if (item.type === 'clock_out') { %>
+              <p>Uitgeklokt op: <%= activeEmployeeTime[0].timestamp %></p>
+            <% } %>
+          <% } %>
+
+
+
+
+
       </div>
-        <% }) %>
+        <% }}) %>
       </div>
-    
-
-
-
-
-
-
-
-
-      
 
 
     </main>

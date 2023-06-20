@@ -1,9 +1,16 @@
-/*---Import---*/
+/*---Import font helvetica---*/
 @import url("https://fonts.cdnfonts.com/css/helvetica-neue-5");
+
+@font-face {
+  font-family: 'Helvetica Neue';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Helvetica Neue'), url('https://fonts.cdnfonts.com/s/62895/HelveticaNeueThin.woff') format('woff');
+}
 
 /*---Root---*/
 :root {
-  --font: var(--font);
+  --font: 'Helvetica Neue';
   --green: #059669;
   --white: #f3f4f6;
   --container: #ffffff;
@@ -37,9 +44,12 @@ main {
 h1 {
   z-index: 100;
   font-size: 36px;
-  font-weight: bold;
   justify-items: center;
   color: var(--green);
+}
+
+h2 {
+  font-weight: 400;
 }
 
 .item {
@@ -76,6 +86,11 @@ h1 {
   margin: 15px;
 }
 
+@media all and (min-width: 550px) {
+  .employees {
+    --columns: 2;
+  }
+}
 @media all and (min-width: 700px) {
   .employees {
     --columns: 3;
