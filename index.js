@@ -29,16 +29,6 @@ const baseUrl = "https://api.werktijden.nl/2";
 const url = `${baseUrl}/employees`;
 
 
-// Haal de datum van vandaag op om alleen de punches van vandaag te laten zien:
-const date = new Date()
-const timeZone = 'Europe/Amsterdam'
-const zonedDate = utcToZonedTime(date, timeZone)
-const start = formatISO(new Date(zonedDate), { representation: 'date' })
-const end = formatISO(add(new Date(zonedDate), { days: 1 }), { representation: 'date' })
-
-const today = format(utcToZonedTime(date, timeZone), 'd-L-y')
-
-
 
 // Url voor ophalen alle clock ins/outs
 
@@ -84,38 +74,32 @@ async function postData(url, body) {
 
 
 
-//route index
-// index
+// route index
 app.get("/", async (request, response) => {
   const employees = await dataFetch("https://api.werktijden.nl/2/employees");
+
+ 
+
+  // Haal de datum van vandaag op om alleen de punches van vandaag te laten zien:
+  const date = new Date();
+  const timeZone = 'Europe/Amsterdam';
+  const zonedDate = utcToZonedTime(date, timeZone);
+  const start = formatISO(new Date(zonedDate), { representation: 'date' });
+  const end = formatISO(add(new Date(zonedDate), { days: 1 }), { representation: 'date' });
+
+ 
+
+  const today = format(utcToZonedTime(date, timeZone), 'd-L-y');
+
+ 
+
+  const punchesUrl = `${baseUrl}/timeclock/punches?departmentId=298538&start=${start}&end=${end}`;
   const punches = await dataFetch(punchesUrl); // Fetch punches data
 
-
-
-  // console.log(employeesData);
-  // console.log(punchesData.data);
+ 
 
   response.render("aanwezigheid", { employees, punches }); // Pass punches data to the template
 });
-
-//   response.render("aanwezigheid", { employee: employeesData, punches: punchesData.data ? punchesData.data : false });
-// });
-
-
-// // Fetch and render data
-// app.get("/", async (request, response) => {
-//   try {
-//     const employeesDataPromise = fetchData(urlEmployees);
-//     const punchesDataPromise = fetchData(punchesUrl);
-
-//     const [employeesData, punchesData] = await Promise.all([employeesDataPromise, punchesDataPromise]);
-
-//     response.render("aanwezigheid", { employee: employeesData, punches: punchesData.data || false });
-//   } catch (error) {
-//     console.error(error);
-//     response.status(500).send("Internal Server Error");
-//   }
-// });
 
 
 
@@ -142,44 +126,6 @@ app.get("/clockin/:employeeId", async (request, response) => {
 
 
 
-
-
-
-
-
-// post json
-
-// // clockin
-
-// // voor het posten moet ik de employee_id en department_id(#departmentnummer)
-
-// export async function postClockinJson(UrlClockin, body) {
-//   return await fetch(UrlClockin, {
-//     method: "post",
-
-//     body: JSON.stringify(body),
-
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((response) => response.json())
-
-//     .catch((error) => error);
-// }
-
-// // post de uitkloktijden
-
-// export async function postClockoutJson(UrlClockout, body) {
-//   return await fetch(UrlClockout, {
-//     method: "post",
-
-//     body: JSON.stringify(body),
-
-//     headers: { "Content-Type": "application/json" },
-//   })
-//     .then((response) => response.json())
-
-//     .catch((error) => error);
-// }
 
 // Clock in
 app.post("/clockin", async (request, response) => {
