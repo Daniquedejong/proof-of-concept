@@ -1,43 +1,35 @@
 <%- include('./partials/head') %>
 
-<h1>Aanwezigheid</h1>
+  <h1>Aanwezigheid</h1>
 
-<p class="time">08:00</p>
-<input type="time">
-<p class="time">20:00</p>
+  <p class="time">08:00</p>
+  <input type="time">
+  <p class="time">20:00</p>
 
+  <section class="employees">
+    <% employees.forEach(item=> { %>
+      <div class="employees-per-one">
+        <h2><%= item.name %></h2>
 
-      <div class="employees">
-
-        <% employees.forEach(item=> { %>
-
-          <div class="employees-per-one">
-        <h2> <%= item.name %> </h2>
-  
         <!-- foto uit de API -->
         <% if(item.avatar) { %>
-        <img
+          <img
             src="<%= item.avatar %>"
             loading="lazy"
             alt="fotoProduct"
             class="foto"
-        />
-  
+          />
         <!-- Placeholder foto-->
         <% }else{ %>
-        <img
-          src="/public/assets/werktijden-nl[2795].svg"
-          alt="placeholder-werktijden"
-          class="foto"
-        />
-        <% } %>
+          <img
+            src="/public/assets/werktijden-nl[2795].svg"
+            alt="placeholder-werktijden"
+            class="foto"
+          />
+          <% } %>
 
         <h3>Ingeklokt</h3>
         <h3>Uitgeklokt</h3>
-
-
-
-
 
         <% if (punches) { %>
           <% const activeEmployeeTime = [...punches.data].filter(timePunch => timePunch.employee_id == item.id) %>
@@ -51,17 +43,9 @@
               <p>Uitgeklokt op: <%= activeEmployeeTime[0].timestamp %></p>
             <% } %>
           <% } %>
-
-
-
-
-
+        <% } %>
       </div>
-        <% }}) %>
-      </div>
-
-
-    </main>
-
-
+    <% }) %>
+  </section>
+</main>
 <%- include('./partials/foot') %>
