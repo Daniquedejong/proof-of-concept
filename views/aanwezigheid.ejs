@@ -1,10 +1,11 @@
 <%- include('./partials/head') %>
 
   <h1>Aanwezigheid</h1>
+  <h2>Donderdag 22 Juni</h2>
 
-  <p class="time">08:00</p>
+  <!-- <p class="time">08:00</p>
   <input type="time">
-  <p class="time">20:00</p>
+  <p class="time">20:00</p> -->
 
   <section class="employees">
     <% employees.forEach(item=> { %>
@@ -28,24 +29,66 @@
           />
           <% } %>
 
-        <h3>Ingeklokt</h3>
-        <h3>Uitgeklokt</h3>
 
         <% if (punches) { %>
-          <% const activeEmployeeTime = [...punches.data].filter(timePunch => timePunch.employee_id == item.id) %>
-          <% console.log(activeEmployeeTime) %>
-          <% if(activeEmployeeTime.length) { %>
-            <p>Ingeklokt op: <%= activeEmployeeTime[0].timestamp %></p>
+          <% const activeItemTime = [...punches].filter(timePunch => timePunch.item_id == item.id) %>
+          <% console.log(activeItemTime) %>
+          <% if(activeItemTime.length) { %>
+            <p>Ingeklokt op: <%= activeItemTime[0].timestamp %></p>
             <% if (item.type === 'clock_in') { %>
-              <button class="clock-out-button" data-employee-id="<%= item.id %>">Clock Out</button>
+              <button class="clock-out-button" data-item-id="<%= item.id %>">Clock Out</button>
               <p>Uitgeklokt op: <span id="clockOutTime-<%= item.id %>"></span></p>
             <% } else if (item.type === 'clock_out') { %>
-              <p>Uitgeklokt op: <%= activeEmployeeTime[0].timestamp %></p>
+              <p>Uitgeklokt op: <%= activeItemTime[0].timestamp %></p>
             <% } %>
           <% } %>
-        <% } %>
-      </div>
-    <% }) %>
+
+
+
+
+
+    
+    <div class="form-wrapper">
+
+      
+      <!-- Clock-in form -->
+      
+<form action="/clockin" method="post">
+  <label for="employeeId"></label>
+  <select id="employeeId" name="employeeId" required>
+    <% employees.forEach((employee) => { %>
+      <option value="<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></option>
+    <% }); %>
+  </select>
+<br>
+  <label for="departmentId">Locatie nummer:</label>
+  <input type="text" id="departmentId" name="departmentId" required>
+
+  <button type="submit">Clock In</button>
+</form>
+
+<!-- Clock-out form -->
+<form action="/clockout" method="post">
+  <label for="employeeId"></label>
+  <select id="employeeId" name="employeeId" required>
+    <% employees.forEach((employee) => { %>
+      <option value="<%= employee.id %>"><%= employee.first_name %> <%= employee.last_name %></option>
+    <% }); %>
+  </select>
+  <br>
+  <label for="departmentId">Locatie nummer:</label>
+  <input type="text" id="departmentId" name="departmentId" required>
+
+  <button type="submit">Clock Out</button>
+</form>
+
+     </div>
+     <% } %>
+    </div>
+  <% }) %>
+
+
+
   </section>
 </main>
 <%- include('./partials/foot') %>

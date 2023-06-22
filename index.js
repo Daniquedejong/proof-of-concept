@@ -31,6 +31,8 @@ const end = formatISO(add(new Date(zonedDate), { days: 1 }), {
   representation: "date",
 });
 
+const today = format(utcToZonedTime(date, timeZone), 'd-L-y')
+
 const options = {
   method: "GET",
   headers: {
@@ -38,27 +40,34 @@ const options = {
   },
 };
 
-const employeesUrl = `${baseUrl}/employees`
-const punchesUrl = `${baseUrl}/timeclock/punches?departmentId=298538&start=${start}&end=${end}`;
-const urlClockin = `${baseUrl}/timeclock/clockin`;
-const urlCLockout = `${baseUrl}/timeclock/clockout`;
+const employeesUrl = `${baseUrl}/employees`;
+const punchesUrl = `${baseUrl}/timeclock/punches?departmentId=98750&start=${start}&end=${end}`;
+const clockinUrl = `${baseUrl}/timeclock/clockin`;
+const cLockoutUrl = `${baseUrl}/timeclock/clockout`;
 
 // Routes
 // GET root
 app.get("/", async (request, response) => {
-  console.log(1);
   const employeesData = await fetchData(employeesUrl);
-  console.log(2, employeesData);
 
   const punchesData = await fetchData(punchesUrl);
 
   // console.log(employeesData);
-  // console.log(punchesData.data);
+  console.log(punchesData.data);
 
   response.render("aanwezigheid", {
     employees: employeesData,
     punches: punchesData.data ? punchesData.data : false,
   });
+});
+
+//  GET-verzoek voor het ophalen van de recente inkloktijd
+app.get("/clockin/:employeeId", async (request, response) => {
+  const { employeeId } = request.params;
+  const recentClockInData = await fetchData(`/clockin/${employeeId}`);
+  const recentClockInTime = recentClockInData.timestamp;
+
+  response.send(recentClockInTime);
 });
 
 // GET-verzoek voor het ophalen van de recente uitkloktijd
@@ -70,24 +79,20 @@ app.get("/clockout/:employeeId", async (request, response) => {
   response.send(recentClockOutTime);
 });
 
-//  GET-verzoek voor het ophalen van de recente inkloktijd
-app.get("/clockin/:employeeId", async (request, response) => {
-  const { employeeId } = request.params;
-  const recentClockInData = fetchData(`/clockin/${employeeId}`);
-  const recentClockInTime = recentClockInData.timestamp;
-
-  response.send(recentClockInTime);
-});
-
 // Clock in
 app.post("/clockin", async (request, response) => {
-  const { employeeId, departmentId } = request.body;
+  //   console.log('data', clockInData);
+  const departmentId = Number(request.body.departmentId);
+  const employeeId = Number(request.body.employeeId);
 
-  const clockInData = postData(clockinUrl, {
+  const postData = {
     employee_id: employeeId,
     department_id: departmentId,
-  });
-  console.log(clockInData);
+  };
+
+  postJson("https://api.werktijden.nl/2/timeclock/clockin", postData);
+
+  console.log();
   response.redirect("/");
 });
 
@@ -95,82 +100,36 @@ app.post("/clockin", async (request, response) => {
 app.post("/clockout", async (request, response) => {
   const { employeeId, departmentId } = request.body;
 
-  const clockOutData = postData(clockoutUrl, {
+  const clockOutData = await postData(clockoutUrl, {
     employee_id: employeeId,
     department_id: departmentId,
   });
-  console.log(clockOutData);
   response.redirect("/");
 });
 
 // Helper functions
 // GET-verzoek
 async function fetchData(url) {
-  console.log(url)
   const response = await fetch(url, options);
   const data = await response.json();
   return data;
 }
 
-// POST-verzoek
-async function postData(url, body) {
-  const postOptions = {
-    ...options,
+async function postJson(url, body) {
+  console.log(2, JSON.stringify(body));
+  return await fetch(url, {
     method: "POST",
     body: JSON.stringify(body),
-  };
-
-  const response = fetch(url, postOptions);
-  const data = response.json();
-  return data;
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.API_KEY}`,
+    },
+  })
+    .then((response) => response.json())
+    .catch((error) => error);
 }
-
 
 app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), function () {
   console.log(`application started on http://localhost:${app.get("port")}`);
 });
-
-
-
-// // route index
-// app.get("/", async (request, response) => {
-//   const employees = await dataFetch("https://api.werktijden.nl/2/employees");
-// })
-
-  // // Haal de datum van vandaag op om alleen de punches van vandaag te laten zien:
-  // const date = new Date();
-  // const timeZone = 'Europe/Amsterdam';
-  // const zonedDate = utcToZonedTime(date, timeZone);
-  // const start = formatISO(new Date(zonedDate), { representation: 'date' });
-  // const end = formatISO(add(new Date(zonedDate), { days: 1 }), { representation: 'date' });
-
-  // const today = format(utcToZonedTime(date, timeZone), 'd-L-y');
-
-  // const punchesUrl = `${baseUrl}/timeclock/punches?departmentId=298538&start=${start}&end=${end}`;
-  // const punches = await dataFetch(punchesUrl); // Fetch punches data
-
-//   response.render("aanwezigheid", { employees, punches }); // Pass punches data to the template
-// });
-
-// index
-
-// // Test!!!!!!!!!!!!!!!!! - css transition
-// // Remove the transition class
-// const square = document.querySelector('.square');
-// square.classList.remove('square-transition');
-
-// // Create the observer, same as before:
-// const observer = new IntersectionObserver(entries => {
-//   entries.forEach(entry => {
-//     if (entry.isIntersecting) {
-//       square.classList.add('square-transition');
-//       return;
-//     }
-
-//     square.classList.remove('square-transition');
-//   });
-// });
-
-// observer.observe(document.querySelector('.square-wrapper'));
-// // test!!!!!!!!!!!!!!!!!!!!!

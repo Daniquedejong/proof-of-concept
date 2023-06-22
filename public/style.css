@@ -52,19 +52,6 @@ h2 {
   font-weight: 400;
 }
 
-/* .item {
-  border: 1px solid var(--verdigris);
-  border-radius: 10px;
-  box-shadow: 2px 2px 20px var(--lightgreen);
-  background-color: rgba(231, 129, 20, 0.5);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  height: 70vh;
-  width: 70vw;
-  max-width: 20rem;
-} */
-
 .foto {
   border-radius: 100px 100px 100px 100px;
 }
@@ -84,6 +71,33 @@ h2 {
   box-shadow: 0px 0px 10px 1px rgba(203, 203, 203, 0.5);
   padding: 20px;
   margin: 15px;
+}
+
+#employeeId {
+  border-radius: 6px;
+  border-color: var(--green);
+}
+
+#departmentId {
+  border-radius: 6px;
+  border-color: var(--green);
+}
+
+button {
+  display: block;
+  color: var(--white);
+  background-color: var(--green);
+  border-radius: 6px;
+  border-style: solid 1px var(--border);
+  box-shadow: 0px 0px 10px 1px rgba(203, 203, 203, 1);
+  padding: 8px 10px;
+  margin: 10px auto;
+  transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+  color: var(--green);
+  background-color: var(--white);
 }
 
 
