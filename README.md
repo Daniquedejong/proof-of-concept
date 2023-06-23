@@ -1,33 +1,78 @@
-> _Fork_ deze leertaak en ga aan de slag. Onderstaande outline ga je gedurende deze taak in jouw eigen GitHub omgeving uitwerken. De instructie vind je in: [docs/INSTRUCTIONS.md](docs/INSTRUCTIONS.md)
 
-# Titel
-<!-- Geef je project een titel en schrijf in één zin wat het is -->
+# Werktijden aanwezigheidsoverzicht
 
-## Inhoudsopgave
+![Schermafbeelding 2023-06-23 124245](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/b731ffde-daf4-4c35-9839-9389e22b4226)
 
-  * [Beschrijving](#beschrijving)
-  * [Gebruik](#gebruik)
-  * [Kenmerken](#kenmerken)
-  * [Installatie](#installatie)
-  * [Bronnen](#bronnen)
-  * [Licentie](#licentie)
 
-## Beschrijving
-<!-- Bij Beschrijving staat kort beschreven wat voor project het is en wat je hebt gemaakt -->
-<!-- Voeg een mooie poster visual toe 📸 -->
-<!-- Voeg een link toe naar Github Pages 🌐-->
+## 📚 Inhoudsopgave
 
-## Gebruik
-<!-- Bij Gebruik staat de user story, hoe het werkt en wat je er mee kan. -->
+* [Beschrijving](#beschrijving)
+* [Kenmerken](#kenmerken)
+* [Bronnen](#bronnen)
+* [Licentie](#licentie)
 
-## Kenmerken
-<!-- Bij Kenmerken staat welke technieken zijn gebruikt en hoe. Wat is de HTML structuur? Wat zijn de belangrijkste dingen in CSS? Wat is er met JS gedaan en hoe? Misschien heb je iets met NodeJS gedaan, of heb je een framwork of library gebruikt? -->
+## 🗒️ Beschrijving
+<strong>Werktijden 🖌️:</strong>
 
-## Installatie
-<!-- Bij Instalatie staat hoe een andere developer aan jouw repo kan werken -->
+<p>Ik heb een overzichtspagina gemaakt waarop je medewerkers kan zien. Hierop kunnen mensen in en uitklokken. De tijden zouden zichtbaar moeten worden.</p>
+  
+## 💻👨🏻‍💻👨🏼‍💻 Gebruik
 
-## Bronnen
+Deze website kan je als werknemer gebruiken om in- of uit te checken en dit kan een werkgever ook doen.
 
-## Licentie
+## 👩🏼‍💻👩🏾‍💻👨🏻‍💻👨🏼‍💻 Kenmerken
 
-This project is licensed under the terms of the [MIT license](./LICENSE).
+Lijst met gebruikte tools, technieken en communicatie middelen.
+Dit project is gemaakt met Node, Express, EJS, progressive enhancement.
+
+Wat is Node:
+Node.js is een software platform waarmee ontwikkelaars JavaScript kunnen gebruiken om applicaties te bouwen die op de computer kunnen draaien, net zoals in een webbrowser. Het biedt veel handige functies en is populair vanwege de snelle en efficiënte manier waarop het met data kan omgaan.
+
+Wat is Express:
+Express is een framework voor Node.js waarmee ontwikkelaars gemakkelijk web-applicaties en API's kunnen bouwen. Het biedt veel handige tools en functies om het proces te versnellen en te vereenvoudigen, en kan worden aangepast aan de behoeften van elk project. Express is erg populair en wordt veel gebruikt in de ontwikkeling van webtoepassingen en server-side applicaties.
+
+Wat is EJS:
+EJS is een sjabloontaal waarmee ontwikkelaars dynamische HTML-pagina's kunnen maken in Node.js-applicaties. Het wordt gebruikt om variabelen, conditionele logica en herbruikbare componenten in HTML-pagina's in te voegen, waardoor het bouwen van webpagina's eenvoudiger en efficiënter wordt.
+
+Progressive Enhancement:
+Dit is een benadering van webdesign en ontwikkeling die zich richt op het bouwen van de kernfunctionaliteit van een website op een manier die werkt voor alle gebruikers, ongeacht hun apparaat of browsermogelijkheden.
+
+<ul>
+<li><strong>TOOLS 🧰:</strong></li>
+<li>VSCode</li>
+<li>Pen & Papier</li>
+<li>Laptop</li>
+</ul>
+
+<ul>
+<li><strong>GEBRUIKTE TECHNIEKEN 🛠️:</strong></li>
+<li>HTML</li>
+<li>CSS</li>
+<li>Javascript</li>
+<li>Node<li>
+</ul>
+
+<ul>
+<li><strong>COMMUNICATIE MIDDELEN 🗣️:</strong></li>
+<li>Microsoft Teams</li>
+ <li>Whatsapp</li>
+</ul>
+
+
+## 🌐 Bronnen
+
+<ul>
+
+<li>https://github.com//</li>
+
+<li>https://www.google.nl/</li>
+
+</ul>
+
+
+
+## 🔒 Licentie
+
+![GNU GPL V3](https://www.gnu.org/graphics/gplv3-127x51.png)
+
+This work is licensed under [GNU GPLv3](./LICENSE).
