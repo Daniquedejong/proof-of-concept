@@ -1,18 +1,7 @@
 
 # Vini Mini productenoverzicht 
 
-<img width="400" alt="![image](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/ae2bdf8f-69f3-4dde-b87e-745356f36f3c)
-">
-
-
-<img width="400" alt="Schermafbeelding 2023-06-23 124245](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/3ad3eb26-f7de-421d-ae18-e14af72f6d00
-">
-
-
-<img width="400" alt="Scherm­afbeelding 2023-03-23 om 14 02 14" src="(https://github.com/Daniquedejong/proof-of-concept/assets/112856683/3ad3eb26-f7de-421d-ae18-e14af72f6d00">
-
-
-<img width="400" alt="Scherm­afbeelding 2023-03-23 om 14 02 14" src="https://github.com/iBadr49/performance-vinimini/assets/112856683/4fca2b38-c297-428b-b732-ed065ec754c5">
+![Schermafbeelding 2023-06-23 124245](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/b731ffde-daf4-4c35-9839-9389e22b4226)
 
 
 
