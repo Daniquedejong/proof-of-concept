@@ -1,7 +1,7 @@
 
 # Vini Mini productenoverzicht 
 
-<img width="400" alt="https://github.com/Daniquedejong/proof-of-concept/assets/112856683/1be0057a-6794-4d37-bad7-e00c00514383
+<img width="400" alt="![image](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/ae2bdf8f-69f3-4dde-b87e-745356f36f3c)
 ">
 
 
