@@ -48,6 +48,9 @@ const cLockoutUrl = `${baseUrl}/timeclock/clockout`;
 // Routes
 // GET root
 app.get("/", async (request, response) => {
+  let currentDate = new Date()
+  let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() 
+
   const employeesData = await fetchData(employeesUrl);
 
   const punchesData = await fetchData(punchesUrl);
@@ -55,7 +58,9 @@ app.get("/", async (request, response) => {
   // console.log(employeesData);
   console.log(punchesData.data);
 
+
   response.render("aanwezigheid", {
+    currentTime,
     employees: employeesData,
     punches: punchesData.data ? punchesData.data : false,
   });
@@ -63,11 +68,12 @@ app.get("/", async (request, response) => {
 
 //  GET-verzoek voor het ophalen van de recente inkloktijd
 app.get("/clockin/:employeeId", async (request, response) => {
+  let currentDate = new Date()
+  let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() 
+
   const { employeeId } = request.params;
   const recentClockInData = await fetchData(`/clockin/${employeeId}`);
   const recentClockInTime = recentClockInData.timestamp;
-
-  response.send(recentClockInTime);
 });
 
 // GET-verzoek voor het ophalen van de recente uitkloktijd
@@ -81,6 +87,9 @@ app.get("/clockout/:employeeId", async (request, response) => {
 
 // Clock in
 app.post("/clockin", async (request, response) => {
+
+  let currentDate = new Date()
+  let currentTime = currentDate.getHours() + ":" + currentDate.getMinutes() 
   //   console.log('data', clockInData);
   const departmentId = Number(request.body.departmentId);
   const employeeId = Number(request.body.employeeId);

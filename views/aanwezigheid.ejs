@@ -1,7 +1,7 @@
 <%- include('./partials/head') %>
 
   <h1>Aanwezigheid</h1>
-  <h2>Donderdag 22 Juni</h2>
+  <h2>Donderdag 22 Juni <%= currentTime %></h2>
 
   <!-- <p class="time">08:00</p>
   <input type="time">
@@ -34,12 +34,12 @@
           <% const activeItemTime = [...punches].filter(timePunch => timePunch.item_id == item.id) %>
           <% console.log(activeItemTime) %>
           <% if(activeItemTime.length) { %>
-            <p>Ingeklokt op: <%= activeItemTime[0].timestamp %></p>
+            <p>Ingeklokt op: <%= activeItemTime[0].created_at %></p>
             <% if (item.type === 'clock_in') { %>
               <button class="clock-out-button" data-item-id="<%= item.id %>">Clock Out</button>
               <p>Uitgeklokt op: <span id="clockOutTime-<%= item.id %>"></span></p>
             <% } else if (item.type === 'clock_out') { %>
-              <p>Uitgeklokt op: <%= activeItemTime[0].timestamp %></p>
+              <p>Uitgeklokt op: <%= activeItemTime[0].updated_at %></p>
             <% } %>
           <% } %>
 
@@ -64,7 +64,8 @@
   <label for="departmentId">Locatie nummer:</label>
   <input type="text" id="departmentId" name="departmentId" required>
 
-  <button type="submit">Clock In</button>
+  <button type="submit">Klok in</button>
+  <%= currentTime %>
 </form>
 
 <!-- Clock-out form -->
@@ -79,7 +80,8 @@
   <label for="departmentId">Locatie nummer:</label>
   <input type="text" id="departmentId" name="departmentId" required>
 
-  <button type="submit">Clock Out</button>
+  <button type="submit">Klok uit</button>
+  <%= currentTime %>
 </form>
 
      </div>
