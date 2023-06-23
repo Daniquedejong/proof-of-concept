@@ -9,6 +9,9 @@
 ">
 
 
+<img width="400" alt="Scherm­afbeelding 2023-03-23 om 14 02 14" src="(https://github.com/Daniquedejong/proof-of-concept/assets/112856683/3ad3eb26-f7de-421d-ae18-e14af72f6d00">
+
+
 
 ## 📚 Inhoudsopgave
 
