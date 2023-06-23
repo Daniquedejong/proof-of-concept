@@ -1,9 +1,7 @@
 
 # Werktijden aanwezigheidsoverzicht
 
-![Schermafbeelding 2023-06-23 124245](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/b731ffde-daf4-4c35-9839-9389e22b4226)
-
-<img src='![image](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/13251ccc-42f3-4977-88b9-9b9e09c0af85)' width 50%>
+<img src='![image](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/13251ccc-42f3-4977-88b9-9b9e09c0af85)' width 40%>
 
 ## 📚 Inhoudsopgave
 
