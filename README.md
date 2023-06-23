@@ -1,7 +1,7 @@
 
 # Werktijden aanwezigheidsoverzicht
 
-<img src='![image](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/13251ccc-42f3-4977-88b9-9b9e09c0af85)' width 40%>
+![image](https://github.com/Daniquedejong/proof-of-concept/assets/112856683/13251ccc-42f3-4977-88b9-9b9e09c0af85)
 
 ## 📚 Inhoudsopgave
 
